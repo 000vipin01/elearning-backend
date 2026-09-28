@@ -43,7 +43,14 @@ public class AuthService {
         user.setName(request.getName());
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(User.Role.STUDENT);
+
+        // Role selection: default to STUDENT if not specified or invalid
+        String roleStr = request.getRole();
+        if (roleStr != null && roleStr.equalsIgnoreCase("INSTRUCTOR")) {
+            user.setRole(User.Role.INSTRUCTOR);
+        } else {
+            user.setRole(User.Role.STUDENT);
+        }
 
         userRepository.save(user);
 

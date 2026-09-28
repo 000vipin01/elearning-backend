@@ -64,16 +64,36 @@ public class DashboardController {
                     .orElseThrow(() -> new RuntimeException("Instructor not found"));
 
             List<Course> courses = courseRepository.findByInstructor(instructor);
+            List<Object[]> countResults = enrollmentRepository.countStudentsByInstructor(instructorId);
+
+            Map<Long, Long> studentCountMap = new HashMap<>();
+            for (Object[] row : countResults) {
+                studentCountMap.put((Long) row[0], (Long) row[1]);
+            }
 
             int totalCourses = courses.size();
-            int totalStudents = courses.stream()
-                    .mapToInt(c -> (int) enrollmentRepository.countByCourse(c))
+            int totalStudents = (int) countResults.stream()
+                    .mapToLong(row -> (Long) row[1])
                     .sum();
+
+            // Attach studentCount to each course for frontend use
+            List<Map<String, Object>> courseData = new java.util.ArrayList<>();
+            for (Course c : courses) {
+                Map<String, Object> courseMap = new HashMap<>();
+                courseMap.put("id", c.getId());
+                courseMap.put("title", c.getTitle());
+                courseMap.put("description", c.getDescription());
+                courseMap.put("category", c.getCategory());
+                courseMap.put("instructor", c.getInstructor());
+                courseMap.put("createdAt", c.getCreatedAt());
+                courseMap.put("studentCount", studentCountMap.getOrDefault(c.getId(), 0L));
+                courseData.add(courseMap);
+            }
 
             Map<String, Object> result = new HashMap<>();
             result.put("totalCourses", totalCourses);
             result.put("totalStudents", totalStudents);
-            result.put("courses", courses);
+            result.put("courses", courseData);
 
             return ResponseEntity.ok(result);
         } catch (RuntimeException e) {

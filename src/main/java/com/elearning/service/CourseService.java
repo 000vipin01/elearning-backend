@@ -4,6 +4,7 @@ import com.elearning.dto.CourseRequest;
 import com.elearning.entity.Course;
 import com.elearning.entity.User;
 import com.elearning.repository.CourseRepository;
+import com.elearning.repository.EnrollmentRepository;
 import com.elearning.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,12 @@ public class CourseService {
 
     private final CourseRepository courseRepository;
     private final UserRepository userRepository;
+    private final EnrollmentRepository enrollmentRepository;
 
-    public CourseService(CourseRepository courseRepository, UserRepository userRepository) {
+    public CourseService(CourseRepository courseRepository, UserRepository userRepository, EnrollmentRepository enrollmentRepository) {
         this.courseRepository = courseRepository;
         this.userRepository = userRepository;
+        this.enrollmentRepository = enrollmentRepository;
     }
 
     public List<Course> getAllCourses() {
@@ -67,6 +70,13 @@ public class CourseService {
         if (!course.getInstructor().getId().equals(instructorId)) {
             throw new RuntimeException("Not authorized to delete this course");
         }
+
+        // Check for existing enrollments
+        long enrollmentCount = enrollmentRepository.countByCourse(course);
+        if (enrollmentCount > 0) {
+            throw new RuntimeException("Cannot delete course with " + enrollmentCount + " active enrollments");
+        }
+
         courseRepository.delete(course);
     }
 

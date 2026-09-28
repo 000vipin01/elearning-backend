@@ -13,6 +13,11 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        for (String origin : allowedOrigins) {
+            if ("*".equals(origin)) {
+                throw new IllegalStateException("Wildcard CORS origin is not allowed when credentials are enabled");
+            }
+        }
         registry.addMapping("/api/**")
                 .allowedOrigins(allowedOrigins)
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")

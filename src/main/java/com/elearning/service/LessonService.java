@@ -59,6 +59,10 @@ public class LessonService {
             throw new RuntimeException("Not authorized to delete lessons from this course");
         }
 
-        lessonRepository.deleteById(lessonId);
+        Lesson lesson = lessonRepository.findById(lessonId)
+                .filter(l -> l.getCourse().getId().equals(courseId))
+                .orElseThrow(() -> new RuntimeException("Lesson not found in this course"));
+
+        lessonRepository.delete(lesson);
     }
 }

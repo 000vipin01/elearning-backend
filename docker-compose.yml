@@ -1,19 +1,18 @@
 version: '3.8'
 
 services:
-  mariadb:
-    image: mariadb:11
+  postgres:
+    image: postgres:16
     environment:
-      MARIADB_ROOT_PASSWORD: root123
-      MARIADB_DATABASE: elearning
-      MARIADB_USER: elearning
-      MARIADB_PASSWORD: elearning123
+      POSTGRES_DB: elearning
+      POSTGRES_USER: elearning
+      POSTGRES_PASSWORD: elearning123
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      test: ["CMD-SHELL", "pg_isready -U elearning"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -23,14 +22,16 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/elearning
-      SPRING_DATASOURCE_USERNAME: elearning
-      SPRING_DATASOURCE_PASSWORD: elearning123
-      JWT_SECRET: mySecretKeyForElearningAppThatIsLongEnoughForHS256Algorithm1234567890
-      CORS_ALLOWED_ORIGINS: http://localhost:5173,http://localhost:4173
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: elearning
+      DB_USERNAME: elearning
+      DB_PASSWORD: elearning123
+      JWT_SECRET: ${JWT_SECRET:-change-this-in-production}
+      CORS_ALLOWED_ORIGINS: http://localhost:5173
     depends_on:
-      mariadb:
+      postgres:
         condition: service_healthy
 
 volumes:
-  mariadb_data:
+  postgres_data:
