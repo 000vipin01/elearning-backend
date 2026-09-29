@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:elearning;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 1
+    locations: classpath:db/migration
+  mail:
+    host: localhost
+    port: 25
+
+jwt:
+  secret: testSecretKeyForElearningAppThatIsLongEnoughForHS256Algorithm1234567890
+  expiration: 86400000
+
+cors:
+  allowed-origins: http://localhost:5173
+
+app:
+  admin:
+    email: admin@example.com
+    password: admin123
+  payment:
+    provider: mock
+  media:
+    storage-dir: ./target/test-media
+    stream-token-ttl: 300
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+logging:
+  level:
+    com.elearning: DEBUG
