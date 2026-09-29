@@ -128,3 +128,12 @@ INSERT INTO quiz_questions (id, quiz_id, question_text, option_a, option_b, opti
 (24, 5, 'Which library is used for data manipulation?', 'NumPy', 'Pandas', 'Matplotlib', 'Scikit-learn', 'B'),
 (25, 5, 'What does len() return for a string?', 'First character', 'Last character', 'Length of string', 'Type of string', 'C')
 ON CONFLICT (id) DO NOTHING;
+
+-- Reset all sequences to match the actual max IDs
+-- This prevents duplicate key violations when Hibernate inserts new rows
+SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
+SELECT setval('courses_id_seq', (SELECT MAX(id) FROM courses));
+SELECT setval('lessons_id_seq', (SELECT MAX(id) FROM lessons));
+SELECT setval('enrollments_id_seq', (SELECT MAX(id) FROM enrollments));
+SELECT setval('quizzes_id_seq', (SELECT MAX(id) FROM quizzes));
+SELECT setval('quiz_questions_id_seq', (SELECT MAX(id) FROM quiz_questions));
