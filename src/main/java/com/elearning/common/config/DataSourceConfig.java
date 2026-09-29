@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 import java.net.URI;
 
 @Configuration
-@Profile("!test")
+@Profile("!test & !local")
 public class DataSourceConfig {
 
     @Bean
