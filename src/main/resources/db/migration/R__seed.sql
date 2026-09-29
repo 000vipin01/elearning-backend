@@ -118,73 +118,73 @@ WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1004);
 
 -- Course 2: Data Structures
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1005, 1002, 'Arrays and Linked Lists', 'Arrays and linked lists are fundamental data structures. Learn their properties, operations, and use cases.', 1, 20, TRUE, 'VIDEO', 'media/lesson5.mp4', 1200, 1048576, 'video/mp4'
+SELECT 1005, 1002, 'Arrays and Linked Lists', 'Arrays and linked lists are fundamental data structures. Learn their properties, operations, and use cases.', 1, 20, TRUE, 'VIDEO', NULL, 1200, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1005);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1006, 1002, 'Stacks and Queues', 'Stacks and queues are linear data structures with specific insertion and deletion rules.', 2, 15, FALSE, 'VIDEO', 'media/lesson6.mp4', 900, 1048576, 'video/mp4'
+SELECT 1006, 1002, 'Stacks and Queues', 'Stacks and queues are linear data structures with specific insertion and deletion rules.', 2, 15, FALSE, 'VIDEO', NULL, 900, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1006);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1007, 1002, 'Trees and Graphs', 'Trees and graphs are non-linear data structures used in many applications.', 3, 25, FALSE, 'VIDEO', 'media/lesson7.mp4', 1500, 1048576, 'video/mp4'
+SELECT 1007, 1002, 'Trees and Graphs', 'Trees and graphs are non-linear data structures used in many applications.', 3, 25, FALSE, 'VIDEO', NULL, 1500, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1007);
 
 -- Course 3: UI/UX Design
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1008, 1003, 'Design Thinking', 'Design thinking is a human-centered approach to innovation and problem-solving.', 1, 15, TRUE, 'VIDEO', 'media/lesson8.mp4', 900, 1048576, 'video/mp4'
+SELECT 1008, 1003, 'Design Thinking', 'Design thinking is a human-centered approach to innovation and problem-solving.', 1, 15, TRUE, 'VIDEO', NULL, 900, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1008);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1009, 1003, 'Wireframing', 'Wireframing is the process of creating a visual guide that represents the skeletal framework of a design.', 2, 20, FALSE, 'VIDEO', 'media/lesson9.mp4', 1200, 1048576, 'video/mp4'
+SELECT 1009, 1003, 'Wireframing', 'Wireframing is the process of creating a visual guide that represents the skeletal framework of a design.', 2, 20, FALSE, 'VIDEO', NULL, 1200, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1009);
 
 -- Course 4: Python for Data Science
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1010, 1004, 'Python Basics', 'Python is a versatile programming language widely used in data science.', 1, 20, TRUE, 'VIDEO', 'media/lesson10.mp4', 1200, 1048576, 'video/mp4'
+SELECT 1010, 1004, 'Python Basics', 'Python is a versatile programming language widely used in data science.', 1, 20, TRUE, 'VIDEO', NULL, 1200, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1010);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1011, 1004, 'NumPy Fundamentals', 'NumPy is the fundamental package for scientific computing in Python.', 2, 25, FALSE, 'VIDEO', 'media/lesson11.mp4', 1500, 1048576, 'video/mp4'
+SELECT 1011, 1004, 'NumPy Fundamentals', 'NumPy is the fundamental package for scientific computing in Python.', 2, 25, FALSE, 'VIDEO', NULL, 1500, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1011);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1012, 1004, 'Pandas DataFrame', 'Pandas provides the DataFrame object, a powerful data structure for data manipulation and analysis.', 3, 30, FALSE, 'VIDEO', 'media/lesson12.mp4', 1800, 1048576, 'video/mp4'
+SELECT 1012, 1004, 'Pandas DataFrame', 'Pandas provides the DataFrame object, a powerful data structure for data manipulation and analysis.', 3, 30, FALSE, 'VIDEO', NULL, 1800, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1012);
 
 -- Course 5: Machine Learning
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1013, 1005, 'Introduction to ML', 'What is machine learning? Supervised vs unsupervised learning, and real-world applications.', 1, 20, TRUE, 'VIDEO', 'media/lesson13.mp4', 1200, 1048576, 'video/mp4'
+SELECT 1013, 1005, 'Introduction to ML', 'What is machine learning? Supervised vs unsupervised learning, and real-world applications.', 1, 20, TRUE, 'VIDEO', NULL, 1200, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1013);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1014, 1005, 'Linear Regression', 'Linear regression is a fundamental algorithm in machine learning for predicting continuous values.', 2, 25, FALSE, 'VIDEO', 'media/lesson14.mp4', 1500, 1048576, 'video/mp4'
+SELECT 1014, 1005, 'Linear Regression', 'Linear regression is a fundamental algorithm in machine learning for predicting continuous values.', 2, 25, FALSE, 'VIDEO', NULL, 1500, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1014);
 
 -- Course 6: Cloud Computing (free)
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1015, 1006, 'Cloud Fundamentals', 'What is cloud computing? IaaS, PaaS, SaaS explained with real examples.', 1, 15, TRUE, 'VIDEO', 'media/lesson15.mp4', 900, 1048576, 'video/mp4'
+SELECT 1015, 1006, 'Cloud Fundamentals', 'What is cloud computing? IaaS, PaaS, SaaS explained with real examples.', 1, 15, TRUE, 'VIDEO', NULL, 900, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1015);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1016, 1006, 'AWS Core Services', 'Explore core AWS services: EC2, S3, Lambda, and more.', 2, 20, FALSE, 'VIDEO', 'media/lesson16.mp4', 1200, 1048576, 'video/mp4'
+SELECT 1016, 1006, 'AWS Core Services', 'Explore core AWS services: EC2, S3, Lambda, and more.', 2, 20, FALSE, 'VIDEO', NULL, 1200, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1016);
 
 -- Course 7: Mobile Development
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1017, 1007, 'React Native Basics', 'Introduction to React Native for building cross-platform mobile apps.', 1, 20, TRUE, 'VIDEO', 'media/lesson17.mp4', 1200, 1048576, 'video/mp4'
+SELECT 1017, 1007, 'React Native Basics', 'Introduction to React Native for building cross-platform mobile apps.', 1, 20, TRUE, 'VIDEO', NULL, 1200, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1017);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1018, 1007, 'Navigation and State', 'Learn about navigation patterns and state management in React Native.', 2, 25, FALSE, 'VIDEO', 'media/lesson18.mp4', 1500, 1048576, 'video/mp4'
+SELECT 1018, 1007, 'Navigation and State', 'Learn about navigation patterns and state management in React Native.', 2, 25, FALSE, 'VIDEO', NULL, 1500, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1018);
 
 -- Course 8: Cybersecurity
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1019, 1008, 'Security Fundamentals', 'Core cybersecurity principles: CIA triad, threat modeling, and risk assessment.', 1, 15, TRUE, 'VIDEO', 'media/lesson19.mp4', 900, 1048576, 'video/mp4'
+SELECT 1019, 1008, 'Security Fundamentals', 'Core cybersecurity principles: CIA triad, threat modeling, and risk assessment.', 1, 15, TRUE, 'VIDEO', NULL, 900, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1019);
 
 INSERT INTO lessons (id, course_id, title, content, order_index, duration_minutes, is_free_preview, media_type, media_path, media_duration, media_size, media_mime)
-SELECT 1020, 1008, 'Encryption Basics', 'Symmetric and asymmetric encryption, hashing, and digital signatures.', 2, 20, FALSE, 'VIDEO', 'media/lesson20.mp4', 1200, 1048576, 'video/mp4'
+SELECT 1020, 1008, 'Encryption Basics', 'Symmetric and asymmetric encryption, hashing, and digital signatures.', 2, 20, FALSE, 'VIDEO', NULL, 1200, 1048576, 'video/mp4'
 WHERE NOT EXISTS (SELECT 1 FROM lessons WHERE id = 1020);
 
 -- ============ QUIZZES ============
