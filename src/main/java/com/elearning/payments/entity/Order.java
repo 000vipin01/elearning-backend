@@ -4,6 +4,8 @@ import com.elearning.users.entity.User;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "orders")
@@ -16,6 +18,9 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id", nullable = false)
     private User student;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     @Column(nullable = false, length = 20)
     private String status = "PENDING";
@@ -57,6 +62,8 @@ public class Order {
     public void setId(Long id) { this.id = id; }
     public User getStudent() { return student; }
     public void setStudent(User student) { this.student = student; }
+    public List<OrderItem> getOrderItems() { return orderItems; }
+    public void setOrderItems(List<OrderItem> orderItems) { this.orderItems = orderItems; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
     public BigDecimal getTotalAmount() { return totalAmount; }
