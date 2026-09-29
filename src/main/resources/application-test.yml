@@ -35,6 +35,8 @@ app:
   media:
     storage-dir: ./target/test-media
     stream-token-ttl: 300
+  rate-limiting:
+    enabled: false
 
 springdoc:
   api-docs:
