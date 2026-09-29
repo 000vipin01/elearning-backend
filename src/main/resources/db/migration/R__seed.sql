@@ -267,39 +267,39 @@ WHERE NOT EXISTS (SELECT 1 FROM quiz_questions WHERE id = 1015);
 -- ============ COUPONS ============
 
 INSERT INTO coupons (id, code, description, discount_type, discount_value, max_uses, max_uses_per_user, min_order_amount, starts_at, expires_at, is_active, created_by, created_at)
-SELECT 1001, 'WELCOME20', '20% off for new students', 'PERCENTAGE', 20, 100, 1, 0, NOW(), NOW() + 30, TRUE, 1001, NOW()
+SELECT 1001, 'WELCOME20', '20% off for new students', 'PERCENTAGE', 20, 100, 1, 0, NOW(), NOW() + INTERVAL '30 days', TRUE, 1001, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM coupons WHERE code = 'WELCOME20');
 
 INSERT INTO coupons (id, code, description, discount_type, discount_value, max_uses, max_uses_per_user, min_order_amount, starts_at, expires_at, is_active, created_by, created_at)
-SELECT 1002, 'FLAT100', 'Flat 100 off on orders above 500', 'FIXED', 100, 50, 1, 500, NOW(), NOW() + 60, TRUE, 1001, NOW()
+SELECT 1002, 'FLAT100', 'Flat 100 off on orders above 500', 'FIXED', 100, 50, 1, 500, NOW(), NOW() + INTERVAL '60 days', TRUE, 1001, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM coupons WHERE code = 'FLAT100');
 
 INSERT INTO coupons (id, code, description, discount_type, discount_value, max_uses, max_uses_per_user, min_order_amount, starts_at, expires_at, is_active, created_by, created_at)
-SELECT 1003, 'SUMMER50', '50% off summer sale', 'PERCENTAGE', 50, 200, 2, 0, NOW(), NOW() + 15, TRUE, 1001, NOW()
+SELECT 1003, 'SUMMER50', '50% off summer sale', 'PERCENTAGE', 50, 200, 2, 0, NOW(), NOW() + INTERVAL '15 days', TRUE, 1001, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM coupons WHERE code = 'SUMMER50');
 
 -- ============ OFFERS ============
 
 INSERT INTO offers (id, course_id, title, description, discount_percentage, starts_at, ends_at, status, created_by, created_at)
-SELECT 1001, 1002, 'DSA Early Bird', 'Early bird discount for DSA course', 20, NOW(), NOW() + 14, 'APPROVED', 1002, NOW()
+SELECT 1001, 1002, 'DSA Early Bird', 'Early bird discount for DSA course', 20, NOW(), NOW() + INTERVAL '14 days', 'APPROVED', 1002, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM offers WHERE id = 1001);
 
 INSERT INTO offers (id, course_id, title, description, discount_percentage, starts_at, ends_at, status, created_by, created_at)
-SELECT 1002, 1004, 'Python Launch Offer', 'Special launch pricing for Python course', 15, NOW(), NOW() + 7, 'APPROVED', 1003, NOW()
+SELECT 1002, 1004, 'Python Launch Offer', 'Special launch pricing for Python course', 15, NOW(), NOW() + INTERVAL '7 days', 'APPROVED', 1003, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM offers WHERE id = 1002);
 
 -- ============ ADS ============
 
 INSERT INTO ads (id, title, image_url, target_url, placement_slot, target_role, starts_at, ends_at, is_active, created_by, created_at)
-SELECT 1001, 'Summer Sale - 50% Off', NULL, '/courses', 'DASHBOARD_HERO', NULL, NOW(), NOW() + 30, TRUE, 1001, NOW()
+SELECT 1001, 'Summer Sale - 50% Off', NULL, '/courses', 'DASHBOARD_HERO', NULL, NOW(), NOW() + INTERVAL '30 days', TRUE, 1001, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM ads WHERE id = 1001);
 
 INSERT INTO ads (id, title, image_url, target_url, placement_slot, target_role, starts_at, ends_at, is_active, created_by, created_at)
-SELECT 1002, 'New ML Course', NULL, '/courses/1005', 'CATALOG_INLINE', NULL, NOW(), NOW() + 14, TRUE, 1001, NOW()
+SELECT 1002, 'New ML Course', NULL, '/courses/1005', 'CATALOG_INLINE', NULL, NOW(), NOW() + INTERVAL '14 days', TRUE, 1001, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM ads WHERE id = 1002);
 
 INSERT INTO ads (id, title, image_url, target_url, placement_slot, target_role, starts_at, ends_at, is_active, created_by, created_at)
-SELECT 1003, 'Instructor Program', NULL, '/signup', 'SIDEBAR', 'STUDENT', NOW(), NOW() + 60, TRUE, 1001, NOW()
+SELECT 1003, 'Instructor Program', NULL, '/signup', 'SIDEBAR', 'STUDENT', NOW(), NOW() + INTERVAL '60 days', TRUE, 1001, NOW()
 WHERE NOT EXISTS (SELECT 1 FROM ads WHERE id = 1003);
 
 -- ============ NOTIFICATIONS ============
