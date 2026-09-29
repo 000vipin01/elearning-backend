@@ -1,6 +1,8 @@
 package com.elearning.quizzes.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @Table(name = "quiz_questions")
@@ -29,7 +31,8 @@ public class QuizQuestion {
     @Column(name = "option_d", nullable = false, length = 500)
     private String optionD;
 
-    @Column(name = "correct_option", nullable = false, columnDefinition = "char(1)")
+    @JdbcTypeCode(SqlTypes.CHAR)
+    @Column(name = "correct_option", nullable = false, length = 1)
     private String correctOption;
 
     public QuizQuestion() {}
